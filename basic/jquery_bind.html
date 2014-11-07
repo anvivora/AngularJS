@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS binding data</title>
+</head>
+<body>
+  <p>Input your text</p>
+  <p><input type="text" id="name" value=""></p>
+  <p>Hello <span id="nameDiv"></span></p>
+  <script>
+    var text = document.getElementById('name');
+    nameDiv = document.getElementById('nameDiv');
+    text.addEventListener('keyup',function(){
+      var Gettext = text.value;
+      nameDiv.innerHTML = Gettext;
+    });
+  </script>
+</body>
+</html>
