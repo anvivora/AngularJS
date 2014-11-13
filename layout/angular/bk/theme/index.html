@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Template using ng-include</title>
+  <link rel="stylesheet" href ="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-route.min.js"></script>
+</head>
+<body>
+
+  <div ng-include="'templates/header.html'"></div>
+  <div ng-view></div>
+  <main>
+    <section>
+      <article>Hello Vietnam</article>
+      <aside>
+        <h3>Module 1</h3>
+        <p>Introduction to our site</p>
+      </aside>
+    </section>
+  </main>
+  <footer>
+    <small>Copyright 2014</small>
+  </footer>
+</body>
+</html>
