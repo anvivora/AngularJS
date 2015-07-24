@@ -1,0 +1,20 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "pic": ["img/html5.png","120","120","HTML5"],
+    "options": ["H1","H2","H3","Hypertext Markup Language"],
+    "answer": 3
+  },
+  {
+    "question": "Who is president of USA now?",
+    "pic": ["img/usa.jpg","120","120","USA"],
+    "options": ["Barrack Obama","Geogre Bush","Putin","Bill Clinton"],
+    "answer": 0
+  },
+  {
+    "question": "What name of Manchester United's stadium",
+    "pic": ["img/manu.jpg","120","120","HTML5"],
+    "options": ["Old Trafford","Wembley","White Hart Lane","Stamford Bridge"],
+    "answer": 0
+  }
+]

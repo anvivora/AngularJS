@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WebApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Enumarating Object</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+  <script>
+    var WebApp = angular.module('WebApp',[]);
+    WebApp.controller('CountryCtrl',function($scope){
+      $scope.countries= [
+        {"name":"VietNam", "population": 1000000},
+        {"name":"Laos", "population": 500000},
+        {"name":"US", "population": 2500000}
+      ];
+    });
+  </script>
+</head>
+<body ng-controller="CountryCtrl">
+  <ul>
+    <li ng-repeat="country in countries">{{country.name}} - population: {{country.population}}</li>
+  </ul>
+</body>
+</html>

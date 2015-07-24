@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WebApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Clear data after submit</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+  <script>
+    var nameApp = angular.module('WebApp',[]);
+    nameApp.controller('NameCtrl',function($scope){
+      $scope.names = ['Tu','Dat','Trang'];
+      $scope.addName = function(){
+        $scope.names.push($scope.enteredName);
+        $scope.enteredName= '';
+      }
+    });
+  </script>
+</head>
+<body ng-controller="NameCtrl">
+  <ul>
+    <li ng-repeat="name in names">{{name}}</li>
+  </ul>
+  <form ng-submit="addName()">
+    <input type="text" ng-model="enteredName">
+    <input type="submit" value="add">
+  </form>
+</body>
+</html>

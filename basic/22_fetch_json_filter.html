@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="WebApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Fetch data from JSON</title>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
+  <script>
+    var WebApp = angular.module('WebApp',[]);
+    WebApp.controller('CountryCtrl',function($scope, $http){
+      $http.get('countries.json').success(function(data){
+        $scope.countries = data;
+      });
+    });
+  </script>
+</head>
+<body ng-controller="CountryCtrl">
+  Search : <input type="text" ng-model="search">
+  <table>
+    <tr>
+      <th>Country</th>
+      <th>Population</th>
+    </tr>
+    <tr ng-repeat="country in countries | filter:search">
+      <td>{{country.name}}</td>
+      <td>{{country.population}}</td>
+    </tr>
+  </table>
+</body>
+</html>
