@@ -1,10 +1,10 @@
-var module = angular.module('quizApp', []);
+var app = angular.module('quizApp', []);
  
-module.directive('quiz', function(quizFactory) {
+app.directive('quiz', function(quizFactory) {
   return {
     restrict: 'AE', //matches attribute & element name
     scope: {},
-    templateUrl: 'template.html',
+    templateUrl: 'template_new.html',
     link: function(scope, elem, attrs) {
       scope.start = function() {
         //start data
@@ -22,41 +22,43 @@ module.directive('quiz', function(quizFactory) {
 
       scope.getQuestion = function() {
         //load question to scope form Factory
-        var q = quizFactory.getQuestion(scope.id);
-        if(q) {
-          scope.question = q.question;
-          scope.options = q.options;
-          scope.answer = q.answer;
-          scope.pic = q.pic;
-          scope.answerMode = true;
-        } else {
-          scope.quizOver = true;
-        }
-        return 0;
+        var q = quizFactory.getData();
+        scope.list = q;
+        // var q = quizFactory.getQuestion(scope.id);
+        // if(q) {
+        //   scope.question = q.question;
+        //   scope.options = q.options;
+        //   scope.answer = q.answer;
+        //   scope.pic = q.pic;
+        //   scope.answerMode = true;
+        // } else {
+        //   scope.quizOver = true;
+        // }
+        // return 0;
       };
  
       scope.checkAnswer = function() {
-        //match question and answer is correct or not
-        if(!$('input[name=answer]:checked').length) return;
+         //match question and answer is correct or not
+        // if(!$('input[name=answer]:checked').length) return;
  
-        var ans = $('input[name=answer]:checked').val();
-        if(ans == scope.options[scope.answer]) {
-          scope.score++;
-          scope.correctAns = true; //check answer - return true
-        } else {
-          scope.correctAns = false; //check answer - return false
-        }
+        // var ans = $('input[name=answer]:checked').val();
+        // if(ans == scope.options[scope.answer]) {
+        //   scope.score++;
+        //   scope.correctAns = true; //check answer - return true
+        // } else {
+        //   scope.correctAns = false; //check answer - return false
+        // }
  
-        scope.answerMode = false;
+        // scope.answerMode = false;
       };
       
-      scope.showScore = function() {
-        if(scope.score == 0) {
-          return 0;
-        } else {
-          return scope.score;  
-        }
-      }
+      // scope.showScore = function() {
+      //   if(scope.score == 0) {
+      //     return 0;
+      //   } else {
+      //     return scope.score;  
+      //   }
+      // }
       //add - change question
       scope.nextQuestion = function() {
         scope.id++;
@@ -68,56 +70,31 @@ module.directive('quiz', function(quizFactory) {
   }
 });
 
-//get data from JSON file
-module.factory('quizFactory',function($http) {
 
-  var getMainData = $http.get('http://localhost.frontend/tu/quiz_app/data/quiz.json').success(function(response) {
-    return response.data;
-  });
-
-  var questions = {}; // define question object
-
-  questions.getMainData = function() { // define method on factory object
-    return getMainData; // returning data that was pulled in $http call
-  };
-  
-
-  // var questions = [
-  //   {
-  //     question: "What does HTML stand for?",
-  //     pic: ["img/html5.png","120","120","HTML5"],
-  //     options: ["H1","H2","H3","Hypertext Markup Language"],
-  //     answer: 3
-  //   },
-  //   {
-  //     question: "Who is president of USA now?",
-  //     pic: ["img/usa.jpg","120","120","USA"],
-  //     options: ["Barrack Obama","Geogre Bush","Putin","Bill Clinton"],
-  //     answer: 0
-  //   },
-  //   {
-  //     question: "What name of Manchester United's stadium",
-  //     pic: ["img/manu.jpg","120","120","HTML5"],
-  //     options: ["Old Trafford","Wembley","White Hart Lane","Stamford Bridge"],
-  //     answer: 0
-  //   }
-  // ];
+app.factory('quizFactory', function($http) {
   return {
-    getQuestion: function(id) {
-      //return questions;
-      console.log(questions);
-      return questions;
-      // if(id < questions.length) {
-      //   return questions[id];
-      // } else {
-      //   return false;
-      // }
+    getData : function() {
+      var arr_quiz = $http.get('http://localhost.frontend/tu/quiz_app/data/quiz.json').success(function(res){
+        return res;
+      });
+      console.log(arr_quiz);
+      return arr_quiz;
     }
   }
-  
-
 });
+//get data from JSON file
+// module.factory('quizFactory',function($http) {
 
+//   var getMainData = $http.get('http://localhost.frontend/tu/quiz_app/data/quiz.json').success(function(response) {
+//     return response.data;
+//   });
+
+//   var questions = {}; // define question object
+
+//   questions.getMainData = function() { // define method on factory object
+//     return getMainData; // returning data that was pulled in $http call
+//   };
+  
 // module.factory('quizFactory',function() {
 //   var questions = [
 //     {
