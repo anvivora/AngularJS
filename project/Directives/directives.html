@@ -1,0 +1,29 @@
+<div id="welcome" class="col-md-3">
+  <ul>
+  	<li>ng-init</li>
+  	<li>custom directives</li>
+  	<li></li>
+  	<li></li>
+  	<li></li>
+  </ul>
+<!-- /#welcome --></div>
+<div id="initTop" class="col-md-9">
+  <h1>Ng-init</h1>
+  <div ng-controller="initController">
+  	{{demo}}
+  	<div my-customer ng-init="demo='Nội dung'">{{demo}}</div>
+  </div>
+  {{demo}}
+  <p>Trong lập trình hướng đối tượng thì chúng ta có khái niệm hàm khởi tạo (constructor), thì ng-init cũng vậy, nó có ý nghĩa là khai báo dữ liệu khởi tạo khi ứng dụng vừa được chạy. Các dữ liệu này sẽ được dùng cho toàn bộ phạm vi của controller mà nó thuộc về.</p>
+  <p>khi khởi tạo thì các các dữ liệu phải nằm trong colltroller hiện hành thì nó mới show ra dc</p>
+
+  <div ng-controller="cusDirectController">
+  	<div own-directive></div>
+  	<p>Cái này thú vị nhất nè, lúc trước mình cứ nghĩ là danh sách AngularJS Directives là cố đinh, điều này là một sai lầm nhé. Nghĩa là ngoài các Directives mặc định có sẵn trong Angular thì chúng ta có thể tự tạo được. <br />
+		Ví dụ 1: Xây dựng một Directive xuất hiện lời chào với nội dung "Chào mừng các bạn đến với website phuotky.com".</p>
+  </div>
+<!-- /#initTop --></div>
+
+
+  
+<!-- /#welcome --></div>
