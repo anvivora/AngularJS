@@ -7,8 +7,8 @@ app.config(function($routeProvider) {
 		.when('/directives',{
 			templateUrl: 'directives.html'
 		})
-		.when('/price',{
-			templateUrl: 'price.html'
+		.when('/general',{
+			templateUrl: 'general.html'
 		});
 });
 

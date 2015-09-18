@@ -2,26 +2,49 @@
   <ul>
   	<li>ng-init</li>
   	<li>custom directives</li>
-  	<li></li>
-  	<li></li>
-  	<li></li>
   </ul>
 <!-- /#welcome --></div>
 <div id="initTop" class="col-md-9">
-  <h1>Ng-init</h1>
+  <p>Đối với directives của angularjs thì định nghĩa viết hay nhất đó là Directives là một thành phần mở rộng của HTML, mà bạn có thể custom lại các thuộc tính, các phần tử (element) do AngularJS nó định nghĩa thêm. Mỗi directive được bắt đầu bằng tiền tố ng-, chẳng hạn một directive có dạng ng-xxx trong đó xxx là tên của directive mà chúng ta sử dụng.</p>
+  <h3>ng-init</h3>
   <div ng-controller="initController">
   	{{demo}}
-  	<div my-customer ng-init="demo='Nội dung'">{{demo}}</div>
+  	<div my-customer ng-init="demo='Nội dung khởi tạo'">{{demo}}</div>
+    <input type="text" ng-model="demo" placeholder="Enter name here">
   </div>
   {{demo}}
   <p>Trong lập trình hướng đối tượng thì chúng ta có khái niệm hàm khởi tạo (constructor), thì ng-init cũng vậy, nó có ý nghĩa là khai báo dữ liệu khởi tạo khi ứng dụng vừa được chạy. Các dữ liệu này sẽ được dùng cho toàn bộ phạm vi của controller mà nó thuộc về.</p>
   <p>khi khởi tạo thì các các dữ liệu phải nằm trong colltroller hiện hành thì nó mới show ra dc</p>
-
+  <h3>angular expression</h3>
+  <p>Biểu thức trong AngularJS cũng giống như biểu thức trong JavaScript nhưng nó được đặt trong cặp giấu ngoặc {{ }}. Kết quả của biểu thức sẽ được hiển thị ra ngay chỗ biểu thức được viết ra giống với cơ chế binding của ng-bind directive (cái này sẽ được đề cấp ở phần dưới).Có thể chứa các toán tử, string, biến,...{{ 5 + 5 }}, {{ user.name }}</p>
+  <h3>ng-bind</h3>
+  <p>Dùng để liên kết dữ liệu giữa model và hiển thị ra view</p>
+  <div ng-controller="calController" ng-init="quantity=0; price=5">
+      <input type="number" ng-model="quantity">
+      <input type="number" ng-model="price">
+      Total for invoice: {{quantity*price}}
+  </div>
+  <h3>ng-repeat</h3>
+  <p>
+    <div ng-init="names=[{name:'Tu',age:'19'},{name:'Dat',age:'22'},{name:'Cao Thai',age:'24'}]">
+      <ul>
+        <li ng-repeat="x in names">{{x.name}}</li>
+      </ul>
+    </div>
+  </p>
   <div ng-controller="cusDirectController">
+    <h3>custom directives</h3>
+    <h4>Lưu trữ đơn giản</h4>
   	<div own-directive></div>
   	<p>Cái này thú vị nhất nè, lúc trước mình cứ nghĩ là danh sách AngularJS Directives là cố đinh, điều này là một sai lầm nhé. Nghĩa là ngoài các Directives mặc định có sẵn trong Angular thì chúng ta có thể tự tạo được. <br />
 		Ví dụ 1: Xây dựng một Directive xuất hiện lời chào với nội dung "Chào mừng các bạn đến với website phuotky.com".</p>
+    
+    <h4>Custom HTML Form đăng nhập sử dụng custom directives</h4>
+    <p>Lưu trữ kiểm bất kì và trả về thông qua sử dụng template: </p>
+    <div form-login></div>
   </div>
+
+
 <!-- /#initTop --></div>
 
 
