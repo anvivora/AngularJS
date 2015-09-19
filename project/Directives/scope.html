@@ -1,0 +1,21 @@
+<div id="scope-section" ng-controller="StepController" class="col-md-8">
+	<h3>Adding a Simple Controller (Books manage)</h3>
+	<input type="text" ng-model="name">
+	<ul>
+		<li ng-repeat="book in books | filter:name | orderBy: 'type'">
+			<p><span>Book name: </span>{{ book.name }}</p>
+			<p><span>Type of book: </span>{{ book.type }}</p>
+		</li>
+	</ul>
+	<h3>Another example for Simple Scope</h3>
+	<p>Bạn tuổi con gì?</p>
+	<input type="text" ng-model="animal">
+	<button ng-click='sayGreeting()'>Say Hello nào</button>
+	<p>{{greeting}}</p>
+	<p>Scope: định nghĩa là nơi lưu trường dữ liệu</p>
+	<p>Scope: là vai trò ngữ cảnh của Expression: tức là trung gian để có thể hiển thị trên view thông qua các expression</p>
+	<p>Gắn kết dữ liệu 2 chiều với view (điều này quan trọng vì angularjs có cơ chế two data binding)</p>
+	<p>Cơ chế theo dõi với $.watch()</p>
+	<p>Cơ chế lan truyền thay đổi với $.digest và $.apply() ( xem API của angularJS sẽ rõ)</p>
+	<p>Mô hình Prototype (kế thừa mẫu hình)</p>
+<!-- /#scope-section --></div>
